@@ -11,6 +11,8 @@ namespace ISPProject.Solution
             _applicationIdentitySettings = applicationIdentitySettings;
         }
 
+        #region This needs to be added to support backward compatibility
+
         public AboutPage(IConfigurationSettings configurationSettings)
         {
             _applicationIdentitySettings = new ApplicationIdentitySettings(configurationSettings);
@@ -18,7 +20,11 @@ namespace ISPProject.Solution
 
         public AboutPage()
             : this(ConfigurationSettings.Settings)
-        { }
+        {
+        }
+
+        #endregion
+
 
         public void Render(TextWriter writer)
         {

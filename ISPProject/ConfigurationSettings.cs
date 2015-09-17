@@ -1,92 +1,94 @@
-﻿namespace ISPProject
+﻿using System.Configuration;
+
+namespace ISPProject
 {
-    
-        /// <summary>
-        /// Reads from a config file
-        /// </summary>
-        public class ConfigurationSettings : ConfigurationSection, IConfigurationSettings
+
+    /// <summary>
+    /// Reads from a config file
+    /// </summary>
+    public class ConfigurationSettings : ConfigurationSection, IConfigurationSettings
+    {
+        private static ConfigurationSettings _settings = ConfigurationManager.GetSection("ConfigurationSettings") as ConfigurationSettings;
+        public static ConfigurationSettings Settings
         {
-            private static ConfigurationSettings _settings = ConfigurationManager.GetSection("ConfigurationSettings") as ConfigurationSettings;
-            public static ConfigurationSettings Settings
-            {
-                get { return _settings; }
-            }
+            get { return _settings; }
+        }
 
-            [ConfigurationProperty("ApplicationName", IsRequired = true)]
-            public string ApplicationName
+        [ConfigurationProperty("ApplicationName", IsRequired = true)]
+        public string ApplicationName
+        {
+            get
             {
-                get
-                {
-                    return (string)this["ApplicationName"];
-                }
-                set { this["ApplicationName"] = value; }
+                return (string)this["ApplicationName"];
             }
+            set { this["ApplicationName"] = value; }
+        }
 
-            [ConfigurationProperty("AuthorName", IsRequired = true)]
-            public string AuthorName
+        [ConfigurationProperty("AuthorName", IsRequired = true)]
+        public string AuthorName
+        {
+            get
             {
-                get
-                {
-                    return (string)this["AuthorName"];
-                }
-                set { this["AuthorName"] = value; }
+                return (string)this["AuthorName"];
             }
+            set { this["AuthorName"] = value; }
+        }
 
-            [ConfigurationProperty("CacheDuration", IsRequired = true)]
-            public int CacheDuration
-            {
-                get { return 0; }
-            }
+        [ConfigurationProperty("CacheDuration", IsRequired = true)]
+        public int CacheDuration
+        {
+            get { return 0; }
+        }
 
-            [ConfigurationProperty("DatabaseServerName", IsRequired = true)]
-            public string DatabaseServerName
+        [ConfigurationProperty("DatabaseServerName", IsRequired = true)]
+        public string DatabaseServerName
+        {
+            get
             {
-                get
-                {
-                    return (string)this["DatabaseServerName"];
-                }
-                set { this["DatabaseServerName"] = value; }
+                return (string)this["DatabaseServerName"];
             }
+            set { this["DatabaseServerName"] = value; }
+        }
 
-            [ConfigurationProperty("DatabaseName", IsRequired = true)]
-            public string DatabaseName
+        [ConfigurationProperty("DatabaseName", IsRequired = true)]
+        public string DatabaseName
+        {
+            get
             {
-                get
-                {
-                    return (string)this["DatabaseName"];
-                }
-                set { this["DatabaseName"] = value; }
+                return (string)this["DatabaseName"];
             }
+            set { this["DatabaseName"] = value; }
+        }
 
-            [ConfigurationProperty("DatabaseUserName", IsRequired = true)]
-            public string DatabaseUserName
+        [ConfigurationProperty("DatabaseUserName", IsRequired = true)]
+        public string DatabaseUserName
+        {
+            get
             {
-                get
-                {
-                    return (string)this["DatabaseUserName"];
-                }
-                set { this["DatabaseUserName"] = value; }
+                return (string)this["DatabaseUserName"];
             }
+            set { this["DatabaseUserName"] = value; }
+        }
 
-            [ConfigurationProperty("DatabasePassword", IsRequired = true)]
-            public string DatabasePassword
+        [ConfigurationProperty("DatabasePassword", IsRequired = true)]
+        public string DatabasePassword
+        {
+            get
             {
-                get
-                {
-                    return (string)this["DatabasePassword"];
-                }
-                set { this["DatabasePassword"] = value; }
+                return (string)this["DatabasePassword"];
             }
+            set { this["DatabasePassword"] = value; }
+        }
 
-            [ConfigurationProperty("WebServiceBaseUri", IsRequired = true)]
-            public string WebServiceBaseUri
+        [ConfigurationProperty("WebServiceBaseUri", IsRequired = true)]
+        public string WebServiceBaseUri
+        {
+            get
             {
-                get
-                {
-                    return (string)this["WebServiceBaseUri"];
-                }
-                set { this["WebServiceBaseUri"] = value; }
+                return (string)this["WebServiceBaseUri"];
             }
-        
+            set { this["WebServiceBaseUri"] = value; }
+        }
+
     }
 }
